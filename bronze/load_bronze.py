@@ -6,9 +6,9 @@ import os
 
 # --- Snowflake connection details ---
 conn = snowflake.connector.connect(
-    account="azgcerm-yy35268",      # your Snowflake account
-    user="nada",            # replace with your actual username
-    password="Snowflake@Nada21",        # replace with your actual password
+    account="azgcerm-yy35268",      # Snowflake account
+    user="nada",                    # username
+    password="Snowflake@Nada21",    # password
     warehouse="dev_wh",
     database="real_estate_dw",
     schema="bronze",
