@@ -1,0 +1,23 @@
+{{ config(
+    materialized='table',
+    schema='gold'
+) }}
+
+SELECT DISTINCT
+    TO_NUMBER(TO_CHAR(LISTING_DATE, 'YYYYMMDD')) AS DATE_KEY,
+
+    LISTING_DATE AS FULL_DATE,
+
+    YEAR(LISTING_DATE) AS YEAR,
+
+    QUARTER(LISTING_DATE) AS QUARTER,
+
+    MONTH(LISTING_DATE) AS MONTH,
+
+    MONTHNAME(LISTING_DATE) AS MONTH_NAME,
+
+    DAY(LISTING_DATE) AS DAY,
+
+    DAYNAME(LISTING_DATE) AS DAY_NAME
+
+FROM {{ source('silver', 'silver_listings') }}
